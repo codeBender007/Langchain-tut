@@ -1,0 +1,1 @@
+# is model ko use krne ke liya openai api key chahiye hoti hai jo paid hai 
