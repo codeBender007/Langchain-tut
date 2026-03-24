@@ -16,6 +16,6 @@ llm1 = HuggingFaceEndpoint(
 
 model = ChatHuggingFace(llm=llm1)
 
-result = model.invoke("can you create addition full program in c language")
+result = model.invoke("russia ki capital ka name ka kya hai.")
 print("asnwer : "+result.content)
 

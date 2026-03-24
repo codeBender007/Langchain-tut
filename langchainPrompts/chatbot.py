@@ -1,5 +1,6 @@
 from langchain_huggingface import ChatHuggingFace,HuggingFacePipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from langchain_core.messages import AIMessage , HumanMessage , SystemMessage
 import torch
 
 
@@ -29,15 +30,17 @@ def get_model():
 
 
 model = get_model()
-chat_history = []
+chat_history = [
+    SystemMessage(content="you are a helpfull AI Assistant")
+]
         
 while True:
     user_input = input("you : ")
-    chat_history.append(user_input)
+    chat_history.append(HumanMessage(content = "user_input"))
     if user_input == "exit":
         break
-    result = model.invoke(chat_history)
-    chat_history.append(result)
+    result = model.invoke(user_input)
+    chat_history.append(AIMessage(content = "result"))
     print("AI : ",result.content)
 
 print("History : ",chat_history)

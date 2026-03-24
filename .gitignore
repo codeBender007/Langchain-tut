@@ -1,1 +1,4 @@
-.env 
+myenv_gpu/
+__pycache__/
+*.pyc
+.env
